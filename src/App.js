@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Detail from './components/Detail';
 import Login from './components/Login';
+import Disney from './components/Disney';
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,7 +28,7 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
-
+          <Route exact path="/disney" element={<Disney />} > </Route>
         </Switch>
 
       </Router>  

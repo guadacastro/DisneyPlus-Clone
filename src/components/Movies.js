@@ -1,44 +1,189 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-//import { selectMovies } from "../features/movie/movieSlice"
-//import { useSelector } from "react-redux"
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
+import styled from "styled-components";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
-  const [name, setName] = useState('joker');
+  const [name, setName] = useState("joker");
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:5000/movies?name=${name}`)
+    axios
+      .get(`http://127.0.0.1:5000/movies?name=${name}`)
       .then((response) => {
         setMovies(response.data);
       })
       .catch((error) => {
         console.log(error);
-      })
-  }, [name])
-  
+      });
+  }, [name]);
+
   console.log(movies);
+
+  const settings = {
+    className: "center",
+    centerMode: false,
+    infinite: true,
+    centerPadding: "60px",
+    speed: 500,
+    rows: 1,
+    adaptiveHeight:true,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+  };
 
   return (
     <Container>
-      <h4>Recomended for You</h4>
-      <button onClick={()=>setName('joker')}>Joker</button>
+      <h3>New To Disney+</h3>
+      {/* <button onClick={()=>setName('joker')}>Joker</button>
       <button onClick={()=>setName('cruella')}>Cruella</button>
       <button onClick={()=>setName('avengers')}>Avengers</button>
-      <button onClick={()=>setName('ironman')}>IronMan</button>
+      <button onClick={()=>setName('ironman')}>IronMan</button> */}
       <Content>
-        {movies.map((movie, index) => {
+        {/* {movies.map((movie, index) => {
           return (
           <Link to={`/detail/${name}`}>
             <Wrap>
               <img src={movie} />
             </Wrap>
           </Link>
-
           )
-        })}
+        })} */}
+        <Carousel  {...settings}>
+          <Wrap>
+            <img src="./images/movies/kardashians.webp" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/iceage.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/paraeles.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/man.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/singledrunk.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/coco.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/frozen2.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/ironman2.jpeg" />
+          </Wrap>
+        </Carousel>
+
+        <h3>Recomended For You</h3>
+        <Carousel {...settings}>
+        <Link to="/detail">
+          <Wrap>
+            <img src="./images/movies/avengers.jpeg" />
+          </Wrap>
+          </Link>
+          <Wrap>
+            <img src="./images/movies/cruella.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/ironman.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/joker.webp" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/avengers.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/ironman2.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/cruella.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/ironman.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/joker.webp" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/coco.jpeg" />
+          </Wrap>
+        </Carousel>
+        
+        <h3>What To Watch Tonight</h3>
+        <Carousel {...settings}>
+          <Wrap>
+            <img src="./images/movies/death2.png"/> 
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/kardashians.webp" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/modern.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/encanto.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/bohemian.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/singledrunk.jpeg" />
+          </Wrap>
+        </Carousel>
+        <h3>Family Favorites</h3>
+        <Carousel  {...settings}>
+          <Wrap>
+            <img src="./images/movies/kardashians.webp" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/singledrunk.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/coco.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/frozen2.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/ironman2.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/iceage.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/paraeles.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/man.jpeg" />
+          </Wrap>
+        </Carousel>
+
+        <h3>Coming Soon</h3>
+
+        <Carousel {...settings}>
+          <Wrap>
+            <img src="./images/msmarvel.jpeg"/>
+          </Wrap>
+          <Wrap>
+            <img src="./images/baymax.jpeg"/>
+          </Wrap>
+          <Wrap>
+            <img src="./images/willow.jpeg"/>
+          </Wrap>
+          <Wrap>
+            <img src="./images/america.jpeg"/>
+          </Wrap>
+          <Wrap>
+            <img src="./images/sneak.jpeg"/>
+          </Wrap>
+        </Carousel>
       </Content>
     </Container>
   );
@@ -46,16 +191,15 @@ function Movies() {
 
 export default Movies;
 
-const Container = styled.div``;
+const Container = styled.div`
+`;
 
 const Content = styled.div`
-  display: grid;
-  grid-gap: 25px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+
 `;
 
 const Wrap = styled.div`
-  border-radius: 10px;
+  border-radius: 9px;
   cursor: pointer;
   overflow: hidden;
   border: 3px solid rgba(249, 249, 249, 0.1);
@@ -75,4 +219,37 @@ const Wrap = styled.div`
       rgb(0 0 0 / 72%) 0px 30px 22px -10px;
     border-color: rgba(249, 249, 249, 0.8);
   }
+`;
+
+
+
+const Carousel = styled(Slider)`
+  ul li button {
+    &:before {
+      font-size: 10px;
+      color: rgb(150, 158, 171);
+    }
+  }
+
+  li.slick-active button:before {
+    color: white;
+  }
+
+  .slick-slide {
+    padding: 10px 10px;
+  }
+
+  .slick-list {
+    overflow: visible;
+  }
+
+  .slick-track {
+    
+  }
+
+  button {
+    z-index: 1;
+}
+  
+
 `;

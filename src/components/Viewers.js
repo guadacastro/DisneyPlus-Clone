@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Viewers() {
   const [hovered, setHovered] = useState("");
@@ -8,6 +9,7 @@ function Viewers() {
 
   return (
     <Container>
+      <Link to="/disney">
       <Wrap
         hovering={hovered === "disney"}
         onMouseEnter={() => setHovered("disney")}
@@ -19,6 +21,7 @@ function Viewers() {
         )}
 
       </Wrap>
+      </Link>
       <Wrap
         hovering={hovered === "pixar"}
         onMouseEnter={() => setHovered("pixar")}
