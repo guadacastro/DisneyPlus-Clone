@@ -180,17 +180,6 @@ function Disney(props) {
           </Wrap>
         </Carousel>
       </Content>
-
-      <Title>Originals</Title>
-      <Title>Frozen</Title>
-      <Title>Ice AgTitle</Title>
-      <Title>Action and Adventure</Title>
-      <Title>Comedy</Title>
-      <Title>Drama</Title>
-      <Title>Inspired by Disney Parks</Title>
-      <Title>Music to Our Ears</Title>
-      <Title>Disney Channel Series and Specials</Title>
-      <Title>Made in the '90s</Title>
     </Container>
   );
 }

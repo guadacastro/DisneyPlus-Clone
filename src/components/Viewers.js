@@ -84,13 +84,14 @@ const Container = styled.div`
 `;
 
 const Wrap = styled.div.attrs((props) => {})`
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
   border: 3px solid rgba(249, 249, 249, 0.1);
   box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
     rgb(0 0 0 / 73%) 0px 16px 10px -10px;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-
+  height: 100%;
+  
   img {
     width: 100%;
     height: 100%;
@@ -100,9 +101,10 @@ const Wrap = styled.div.attrs((props) => {})`
 
   video {
     width: 100%;
-    border-radius: 9px;
+    border-radius: 10px;
     height: 100%;
     object-fit: cover;
+   
   }
 
   &:hover {
@@ -110,5 +112,6 @@ const Wrap = styled.div.attrs((props) => {})`
       rgb(0 0 0 / 72%) 0px 30px 22px -10px;
     transform: scale(1.05);
     border-color: rgba(249, 249, 249, 0.8);
+    
   }
 `;

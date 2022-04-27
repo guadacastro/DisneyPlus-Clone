@@ -1,15 +1,13 @@
 This project is a clone of Disney Plus. 
-The main goal was to focus on the front-end
+The main goal was to focus only on the frontend.
 
-## Link to the Website 
-
-Link: [https://marvelous-jalebi-4301be.netlify.app/]
+#### Live Demo
+ https://marvelous-jalebi-4301be.netlify.app/
 
 ### `Technologies`
 - ReactJS
 - Styled Components
 - Netlify
-
 
 ### `How To Install
 
@@ -17,4 +15,3 @@ Link: [https://marvelous-jalebi-4301be.netlify.app/]
 2. > `cd DisneyPlus-Clone`
 3. > `npm install`
 4. > `npm start`
-
