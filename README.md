@@ -2,7 +2,7 @@ This project is a clone of Disney Plus.
 The main goal was to focus only on the frontend.
 
 #### Live Demo
- https://marvelous-jalebi-4301be.netlify.app/
+https://fantastic-kringle-83d9e1.netlify.app/
 
 ### Technologies
 - ReactJS
