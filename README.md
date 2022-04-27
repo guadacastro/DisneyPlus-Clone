@@ -1,21 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This project is a clone of Disney Plus. 
+The main goal was to focus on the front-end
 
-## Available Scripts
+## Link te see the Website 
 
-In the project directory, you can run:
+Link: [https://marvelous-jalebi-4301be.netlify.app/]
 
-### `npm start`
+### `Technologies`
+- ReactJS
+- Styled Components
+- Netlify
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `How To Install
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. > `git clone https://github.com/guadacastro/DisneyPlus-Clone.git`
+2. > `cd DisneyPlus-Clone`
+3. > `npm install`
+4. > `npm start`
 
 ### `npm run build`
 
