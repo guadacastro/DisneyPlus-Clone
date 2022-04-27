@@ -10,28 +10,30 @@ function Viewers() {
   return (
     <Container>
       <Link to="/disney">
-      <Wrap
-        hovering={hovered === "disney"}
-        onMouseEnter={() => setHovered("disney")}
-        onMouseLeave={() => setHovered("")}
-      >
-        <img src="/images/viewers-disney.png" />
-        {hovered === "disney" && (
-          <video loop muted autoPlay src="/videos/disney.mp4" />
-        )}
-
-      </Wrap>
+        <Wrap
+          hovering={hovered === "disney"}
+          onMouseEnter={() => setHovered("disney")}
+          onMouseLeave={() => setHovered("")}
+        >
+          <img src="/images/viewers-disney.png" />
+          {hovered === "disney" && (
+            <video loop muted autoPlay src="/videos/disney.mp4" />
+          )}
+        </Wrap>
       </Link>
-      <Wrap
-        hovering={hovered === "pixar"}
-        onMouseEnter={() => setHovered("pixar")}
-        onMouseLeave={() => setHovered("")}
-      >
-        <img src="/images/viewers-pixar.png" />
-        {hovered === "pixar" && (
-          <video loop muted autoPlay src="/videos/pixar.mp4" />
-        )}
-      </Wrap>
+      <Link to="/pixar">
+        <Wrap
+          hovering={hovered === "pixar"}
+          onMouseEnter={() => setHovered("pixar")}
+          onMouseLeave={() => setHovered("")}
+        >
+          <img src="/images/viewers-pixar.png" />
+          {hovered === "pixar" && (
+            <video loop muted autoPlay src="/videos/pixar.mp4" />
+          )}
+        </Wrap>
+      </Link>
+      <Link to="/marvel" >
       <Wrap
         hovering={hovered === "marvel"}
         onMouseEnter={() => setHovered("marvel")}
@@ -42,26 +44,31 @@ function Viewers() {
           <video loop muted autoPlay src="/videos/marvel.mp4" />
         )}
       </Wrap>
+      </Link>
+      <Link to="/starwars" > 
       <Wrap
-      hovering={hovered === "starwars"}
-      onMouseEnter={() => setHovered("starwars")}
-      onMouseLeave={() => setHovered("")}
+        hovering={hovered === "starwars"}
+        onMouseEnter={() => setHovered("starwars")}
+        onMouseLeave={() => setHovered("")}
       >
         <img src="/images/viewers-starwars.png" />
         {hovered === "starwars" && (
           <video loop muted autoPlay src="/videos/starwars.mp4" />
         )}
       </Wrap>
+      </Link>
+      <Link to="/nationalgeographic"> 
       <Wrap
-      hovering={hovered === "national"}
-      onMouseEnter={() => setHovered("national")}
-      onMouseLeave={() => setHovered("")}
+        hovering={hovered === "national"}
+        onMouseEnter={() => setHovered("national")}
+        onMouseLeave={() => setHovered("")}
       >
         <img src="/images/viewers-national.png" />
         {hovered === "national" && (
           <video loop muted autoPlay src="/videos/national.mp4" />
         )}
       </Wrap>
+      </Link>
     </Container>
   );
 }

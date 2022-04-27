@@ -8,22 +8,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 function Movies() {
-  const [movies, setMovies] = useState([]);
-  const [name, setName] = useState("joker");
-
-  useEffect(() => {
-    axios
-      .get(`http://127.0.0.1:5000/movies?name=${name}`)
-      .then((response) => {
-        setMovies(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [name]);
-
-  console.log(movies);
-
   const settings = {
     className: "center",
     centerMode: false,
@@ -38,7 +22,7 @@ function Movies() {
 
   return (
     <Container>
-      <h3>New To Disney+</h3>
+      
       {/* <button onClick={()=>setName('joker')}>Joker</button>
       <button onClick={()=>setName('cruella')}>Cruella</button>
       <button onClick={()=>setName('avengers')}>Avengers</button>
@@ -53,6 +37,7 @@ function Movies() {
           </Link>
           )
         })} */}
+        <h3>New To Disney+</h3>
         <Carousel  {...settings}>
           <Wrap>
             <img src="./images/movies/kardashians.webp" />

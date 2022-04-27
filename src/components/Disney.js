@@ -1,151 +1,304 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
-function Disney() {
+function Disney(props) {
+  const [videoEnded, setVideoEnded] = useState(false);
+  const [opacity, setOpacity] = useState(1);
+  const { offset } = props;
+  
+  console.log('opacity:', opacity);
+
+  useEffect(() => {
+    var scrollMaxY = window.scrollMaxY || document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var tempOpacity = (offset / scrollMaxY) * 2;
+    
+    if (tempOpacity > 1) {
+      tempOpacity = 1;
+    }
+    tempOpacity = 1 - tempOpacity;
+    if(tempOpacity < 0.25){
+      tempOpacity = 0.25;
+    }
+
+    setOpacity(tempOpacity);
+  }, [offset]);
+
+  const settings = {
+    className: "center",
+    centerMode: false,
+    infinite: true,
+    centerPadding: "60px",
+    speed: 500,
+    rows: 1,
+    adaptiveHeight: true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+  };
+
   return (
     <Container>
-    <Background>
-        <img src="/images/bao.jpeg" />
-    </Background>
-    <ImageTitle>
-        <img src="/images/scale.png" />
-    </ImageTitle>
-    <Controls>
-        <PlayButton>
-            <img src="/images/play-icon-black.png" />
-            <span>PLAY</span>
-        </PlayButton>
-        <TrailerButton>
-        <img src="/images/play-icon-white.png" />
-            <span>TRAILER</span>
-        </TrailerButton>
-        <AddButton>
-            <span>+</span>
-        </AddButton>
-        <GroupWatchButton>
-            <img src="/images/group-icon.png"/>
-        </GroupWatchButton>
-    </Controls>
-    <Subtitle>
-        2018 . 7m . Family, Fantasy, Kids, Animation
-    </Subtitle>
-    <Description>
-        A Chinese mom who's sad when her grown son leaves home gets another chance at motherhood when one of
-        her dumplings springs to life. But she finds that nothing stays cute and small forever.
-    </Description>
+      <Background opacity={opacity}>
+        {videoEnded ? (
+          <img
+            className="fade-in"
+            src="/images/disney-viewer.jpeg"
+          />
+        ) : (
+          <video
+            onEnded={() => setVideoEnded(true)}
+            muted
+            autoPlay
+            src="/videos/disney-view.mp4"
+          />
+        )}
+      </Background>
+
+      <Content>
+        <Title>Featured</Title>
+        <Carousel {...settings}>
+          <Wrap>
+            <img src="./images/movies/iceage1.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/nate.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/coco.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/proud.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/iceage.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/olivia.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/paraeles.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/man.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/bluey.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/mickey.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/pjmasks.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/cheaper.jpeg" />
+          </Wrap>
+        </Carousel>
+
+        <Title>Walt Disney Animation Studios</Title>
+        <Carousel {...settings}>
+          <Wrap>
+            <img src="./images/movies/dumbo.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/cinderella.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/lady-tramp.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/pocahontas.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/frozen.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/lion.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/aladin.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/princess-frog.jpeg" />
+          </Wrap>
+        </Carousel>
+
+        <Title>Live Actions Series and Specials</Title>
+        <Carousel {...settings}>
+          <Wrap>
+            <img src="./images/movies/paraeles.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/olivia.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/high-school.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/robots.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/inter.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/nate.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/turner.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/just-beyond.jpeg" />
+          </Wrap>
+        </Carousel>
+        <Title>Additional Animated Movies</Title>
+        <Carousel {...settings}>
+          <Wrap>
+            <img src="./images/movies/phineas.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/frankenwine.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/miraculus.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/ducktales.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/tinkerbell.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/nate.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/turner.jpeg" />
+          </Wrap>
+          <Wrap>
+            <img src="./images/movies/just-beyond.jpeg" />
+          </Wrap>
+        </Carousel>
+      </Content>
+
+      <Title>Originals</Title>
+      <Title>Frozen</Title>
+      <Title>Ice AgTitle</Title>
+      <Title>Action and Adventure</Title>
+      <Title>Comedy</Title>
+      <Title>Drama</Title>
+      <Title>Inspired by Disney Parks</Title>
+      <Title>Music to Our Ears</Title>
+      <Title>Disney Channel Series and Specials</Title>
+      <Title>Made in the '90s</Title>
     </Container>
-  )
+  );
 }
 
-export default Disney
+export default Disney;
 
-
-
-
-const Container = styled.div`
-    min-heigth: calc(100vh - 70px);
-    padding: 0 calc(3.5vw + 5px);
-    position: relative;
-`
+const Title = styled.h3`
+  position: relative;
+`;
 
 const Background = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    opacity: 0.8;
+display: flex;
+flex-direction: column;
+//background-attachment: fixed;
+width: 100%;
+position: fixed;
+opacity: ${(props) => `${props.opacity}`};
 
-    img {
-        width; 100%;
-        height: 100%;
-        object-fit: cover;
+
+ video {
+   overflow-y: hidden;
+   width: 100%; 
+ }
+
+
+ .fade-in {
+   animation: fadeIn ease 2s;
+   -webkit-animation: fadeIn ease 2s;
+   -moz-animation: fadeIn ease 2s;
+   -o-animation: fadeIn ease 2s;
+   -ms-animation: fadeIn ease 2s;
+ }
+ @keyframes fadeIn {
+   0% {
+     opacity:0;
+   }
+   100% {
+     opacity:1;
+   }
+ }
+
+}
+
+`;
+
+const Content = styled.div`
+  padding-top: 600px;
+  padding-left: 50px;
+  padding-right: 50px;
+`;
+
+const Container = styled.main`
+  background-attachment: scroll;
+`;
+
+const Wrap = styled.div`
+  border-radius: 7px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 3px solid rgba(249, 249, 249, 0.1);
+  box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+      rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+    border-color: rgba(249, 249, 249, 0.8);
+  }
+`;
+
+const Carousel = styled(Slider)`
+  ul li button {
+    &:before {
+      font-size: 10px;
+      color: rgb(150, 158, 171);
     }
-    
-`
+  }
 
-const ImageTitle = styled.div`
-    height: 30vh;
-    min-height: 170px;
-    min-width: 200px;
-    width: 35vw;
-    margin-top: 60px;
+  li.slick-active button:before {
+    color: white;
+  }
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+  .slick-slide {
+    padding: 10px 10px;
+    height: 100%;
+  }
 
-`
+  .slick-slide img {
+    height: 100%;
+    object-fit: contain;
+  }
 
-const Controls = styled.div`
-    display: flex;
-    align-items: center;
-`
+  .slick-list {
+    overflow: hidden;
+  }
 
-const PlayButton = styled.button`
-    border-radius: 4px;
-    font-size: 15px;
-    padding: 0px 24px;
-    margin-right: 22px;
-    display: flex;
-    align-items: center;
-    heigth: 56px;
-    background: rgb(249, 249, 249);
-    border: none;
-    letter-spacing: 1.8px;
-    cursor: pointer;
+  .slick-track {
+  }
 
-    &:hover {
-        background: rgb(198, 198, 198);
-
-    }
-`
-
-const TrailerButton = styled(PlayButton)`
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgb(249, 249, 249);
-    color: rgb(249, 249, 249);
-    text-transform: uppercase;
-
-`
-
-const AddButton = styled.button`
-    margin-right: 16px;
-    width: 44px;
-    height: 44px:
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid white;
-    background-color: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    
-    span {
-        font-size: 30px;
-        color: white;
-    }
-`
-const GroupWatchButton = styled(AddButton)`
-    background: rgb(0, 0 , 0);
-    padding: 0px 1px;
-
-`  
-
-const Subtitle = styled.div`
-    color: rgb(249, 249, 249);
-    font-size: 15px;
-    min-height: 20px;
-    margin-top: 26px;
-`
-
-const Description = styled.div`
-    line-height: 1.4;
-    font-size: 20px;
-    margin-top: 16px;
-    color: rgb(249, 249, 249);
-    max-width: 760px;
-`
+  button {
+    z-index: 1;
+  }
+`;

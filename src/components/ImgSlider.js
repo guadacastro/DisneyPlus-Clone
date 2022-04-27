@@ -26,13 +26,14 @@ let settings = {
         {/* <Wrap>
             <MovieCover  src="/images/slider-scale.jpg" />
         </Wrap> */}
-        <Wrap>
-            <OverlayImage src="/images/station-text.png"/>
-            <MovieCover src="/images/station.jpeg" />  
-        </Wrap>
+     
         <Wrap>
             <OverlayImage style={{marginLeft:'10px', marginTop:'10px', maxHeight:'350px'}} src="/images/nile-text.png"/>
             <MovieCover src="/images/nile-banner.jpeg" /> 
+        </Wrap>
+        <Wrap>
+            <OverlayImage src="/images/station-text.png"/>
+            <MovieCover src="/images/station.jpeg" />  
         </Wrap>
         <Wrap>
             <OverlayImage style={{marginLeft:'100px', marginTop:'10px', maxHeight:'350px'}} src="/images/kardashians-text.png"/>

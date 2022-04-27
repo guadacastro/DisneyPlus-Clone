@@ -1,9 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-function Header() {
+
+function Header(props) {
+  const { offset, fadeable } = props;
+  var scrollMaxY = window.scrollMaxY || (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+  var opacity = (offset/scrollMaxY)*2;
+  if(opacity>1){
+    opacity = 1
+  }
+
+
+// console.log('opacity:', opacity);
+ 
+  
   return (
-    <Nav>
+    <Nav fadeable={fadeable} opacity={opacity} >
       <Logo src="./images/logo.svg" />
       <NavMenu>
         <Link to="/">
@@ -42,12 +54,16 @@ function Header() {
 export default Header;
 
 const Nav = styled.nav`
+  width: 100%;
   height: 70px;
-  background: #090b13;
+  background-color: ${(props) => props.fadeable? `rgba(0, 0, 0, ${props.opacity})`: '#090b13'};
   display: flex;
   align-items: center;
   padding: 0 36px;
   overflow-x: hidden;
+  position: fixed;
+  z-index: 1000;
+  
 `;
 
 const Logo = styled.img`
