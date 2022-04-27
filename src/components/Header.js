@@ -16,7 +16,9 @@ function Header(props) {
   
   return (
     <Nav fadeable={fadeable} opacity={opacity} >
+      <Link to="/" >
       <Logo src="./images/logo.svg" />
+      </Link>
       <NavMenu>
         <Link to="/">
           <a>
