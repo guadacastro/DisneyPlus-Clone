@@ -4,14 +4,26 @@ The main goal was to focus only on the frontend.
 #### Live Demo
  https://marvelous-jalebi-4301be.netlify.app/
 
-### `Technologies`
+### Technologies
 - ReactJS
 - Styled Components
 - Netlify
 
-### `How To Install
+### How To Install
 
-1. > `git clone https://github.com/guadacastro/DisneyPlus-Clone.git`
-2. > `cd DisneyPlus-Clone`
-3. > `npm install`
-4. > `npm start`
+#### Clone the repository
+```console
+git clone https://github.com/guadacastro/DisneyPlus-Clone.git
+```
+#### Enter to the repository folder
+ ```console
+cd DisneyPlus-Clone
+```
+#### Install all dependencies
+ ```console
+npm install
+``` 
+#### Start the development server
+ ```console
+npm start
+```
