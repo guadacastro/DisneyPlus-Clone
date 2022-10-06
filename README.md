@@ -4,6 +4,14 @@ The main goal was to focus only on the frontend.
 #### Live Demo
 https://fantastic-kringle-83d9e1.netlify.app/
 
+#### Video Demo
+
+https://user-images.githubusercontent.com/79326116/194403120-59fecf42-a30d-4a60-bed5-3196b9b5709e.mp4
+
+
+
+
+
 ### Technologies
 - ReactJS
 - Styled Components
